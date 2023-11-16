@@ -2,30 +2,20 @@
 <web-app xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="https://jakarta.ee/xml/ns/jakartaee" xsi:schemaLocation="https://jakarta.ee/xml/ns/jakartaee https://jakarta.ee/xml/ns/jakartaee/web-app_6_0.xsd" id="WebApp_ID" version="6.0">
   <display-name>MyParking</display-name>
   <welcome-file-list>
-    <welcome-file>index.html</welcome-file>
+    <welcome-file>login.html</welcome-file>
     <welcome-file>index.jsp</welcome-file>
-    <welcome-file>index.htm</welcome-file>
+    <welcome-file>login.htm</welcome-file>
     <welcome-file>default.html</welcome-file>
     <welcome-file>default.jsp</welcome-file>
     <welcome-file>default.htm</welcome-file>
   </welcome-file-list>
   <servlet>
     <servlet-name>LoginServlet</servlet-name>
-    <servlet-class>tupackage.LoginServlet</servlet-class>
+    <servlet-class>es.unizar.si.g04.servlet.LoginServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>LoginServlet</servlet-name>
     <url-pattern>/LoginServlet</url-pattern>
-  </servlet-mapping>
-  <servlet>
-    <description></description>
-    <display-name>ConnectionManager</display-name>
-    <servlet-name>ConnectionManager</servlet-name>
-    <servlet-class>ConnectionManager</servlet-class>
-  </servlet>
-  <servlet-mapping>
-    <servlet-name>ConnectionManager</servlet-name>
-    <url-pattern>/ConnectionManager</url-pattern>
   </servlet-mapping>
   <servlet>
     <description>Mi primer Servlet</description>
@@ -36,5 +26,15 @@
   <servlet-mapping>
     <servlet-name>holaMundo</servlet-name>
     <url-pattern>/holaMundo</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>prueba1</display-name>
+    <servlet-name>prueba1</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.prueba1</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>prueba1</servlet-name>
+    <url-pattern>/prueba1</url-pattern>
   </servlet-mapping>
 </web-app>
