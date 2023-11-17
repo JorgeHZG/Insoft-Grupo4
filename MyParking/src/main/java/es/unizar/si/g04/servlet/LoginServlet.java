@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
         try {
             cliente = (clienteDAO.verificarCredenciales(usuario, contrasena));
             System.out.println("Obtenido: " + cliente.getDni() + ", " + cliente.getPassword()  + ", " + cliente.getNombre() + ", " + cliente.getApellido());
-            if (cliente != clienteNULL){ //TODO
+            if (cliente.getNombre() != clienteNULL.getNombre()){ //TODO
                 // Redirigir a la página de éxito
             	request.setAttribute("nombre", cliente.getNombre());
                 request.setAttribute("apellido", cliente.getApellido());
@@ -44,7 +44,8 @@ public class LoginServlet extends HttpServlet {
                 request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
             } else {
                 // Redirigir a la página de error
-                response.sendRedirect("loginNOcorrecto.html");
+            	request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
+                request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();

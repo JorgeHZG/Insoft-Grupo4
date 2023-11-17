@@ -31,15 +31,15 @@ public class ClienteDAO {
 				try (ResultSet rs = statement.executeQuery()) {
 					if (rs.next()) {
 						cliente.setDni(rs.getString("DNI"));
-						System.out.println(cliente.getDni());
+						//System.out.println(cliente.getDni());
 						cliente.setNombre(rs.getString("Nombre"));
-						System.out.println(cliente.getNombre());
+						//System.out.println(cliente.getNombre());
 						cliente.setApellido(rs.getString("Apellido"));
-						System.out.println(cliente.getApellido());
+						//System.out.println(cliente.getApellido());
 
 					}else {
 						System.out.println("Consulta fallida");
-						 System.out.println("Cliente despues de consulta fallida: " + cliente.getDni() + ", " + cliente.getPassword()  + ", " + cliente.getNombre() + ", " + cliente.getApellido());
+						// System.out.println("Cliente despues de consulta fallida: " + cliente.getDni() + ", " + cliente.getPassword()  + ", " + cliente.getNombre() + ", " + cliente.getApellido());
 						return cliente;
 					}
 				} catch (SQLException se) {
