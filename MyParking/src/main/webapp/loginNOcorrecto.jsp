@@ -64,6 +64,15 @@
             font-size: 16px;
             margin-top: 10px;
         }
+
+        /* Estilos para el mensaje de registro */
+        .register-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007BFF; /* Azul del enlace */
+            cursor: pointer;
+            text-decoration: underline;
+        }
     </style>
 </head>
 
@@ -82,6 +91,9 @@
         <c:if test="${not empty errorMessage}">
             <div class="error-message">${errorMessage}</div>
         </c:if>
+
+        <!-- Mensaje de registro -->
+        <div class="register-message" onclick="location.href='registro.html'">No tienes una cuenta? Registrate aqui</div>
     </form>
 </body>
 

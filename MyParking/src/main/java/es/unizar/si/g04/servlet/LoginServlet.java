@@ -12,12 +12,9 @@ import es.unizar.si.g04.model.ClienteVO;
 /*@WebServlet("/LoginServlet")*/
 public class LoginServlet extends HttpServlet {
 
-    /**
-	 * 
-	 */
-	private static final long serialVersionUID = 1L;
+    private static final long serialVersionUID = 1L;
 
-	public LoginServlet() {
+    public LoginServlet() {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -31,20 +28,21 @@ public class LoginServlet extends HttpServlet {
         ClienteDAO clienteDAO = new ClienteDAO(); // Crear instancia DAO
         ClienteVO cliente = new ClienteVO(null, null, null, null);
         ClienteVO clienteNULL = new ClienteVO(null, null, null, null);
-       
 
         try {
             cliente = (clienteDAO.verificarCredenciales(usuario, contrasena));
-            System.out.println("Obtenido: " + cliente.getDni() + ", " + cliente.getPassword()  + ", " + cliente.getNombre() + ", " + cliente.getApellido());
-            if (cliente.getNombre() != clienteNULL.getNombre()){ //TODO
+            // System.out.println("Obtenido: " + cliente.getDni() + ", " +
+            // cliente.getPassword() + ", " + cliente.getNombre() + ", " +
+            // cliente.getApellido());
+            if (cliente.getNombre() != clienteNULL.getNombre()) { // TODO
                 // Redirigir a la página de éxito
-            	request.setAttribute("nombre", cliente.getNombre());
+                request.setAttribute("nombre", cliente.getNombre());
                 request.setAttribute("apellido", cliente.getApellido());
                 request.setAttribute("dni", cliente.getDni());
                 request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
             } else {
                 // Redirigir a la página de error
-            	request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
+                request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
                 request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
             }
         } catch (SQLException e) {

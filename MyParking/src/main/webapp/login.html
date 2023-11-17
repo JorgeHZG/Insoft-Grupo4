@@ -12,6 +12,8 @@
             height: 100vh;
             margin: 0;
             background-color: #edf2f7; /* Fondo azul claro */
+            transition: background-color 0.5s; /* Transición suave del color de fondo */
+            color: #001f3f; /* Color de texto predeterminado */
         }
 
         /* Estilos para el formulario */
@@ -21,11 +23,15 @@
             border-radius: 25px;
             padding: 50px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+            transition: background-color 0.5s; /* Transición suave del color de fondo */
         }
 
         /* Estilos para el título */
         h1 {
-            color: #001f3f; /* Azul marino bonito */
+            color: inherit; /* Hereda el color de texto del elemento padre (body) */
+            border-bottom: 2px solid #001f3f; /* Línea inferior azul para el título */
+            padding-bottom: 10px; /* Espaciado inferior para el título */
+            margin-bottom: 20px; /* Margen inferior para el título */
         }
 
         /* Estilos para las etiquetas y campos de entrada */
@@ -56,10 +62,58 @@
         input[type="submit"]:hover {
             background-color: #0056b3;
         }
+
+        /* Estilos para el mensaje de registro */
+        .register-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007BFF; /* Azul del enlace */
+            cursor: pointer;
+            text-decoration: underline;
+        }
+
+        /* Estilos para el botón de modo nocturno */
+        .mode-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #001f3f;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+
+        /* Estilos para el modo nocturno */
+
+        .night-mode form {
+            background-color: #001f3f;
+            color: white;
+        }
+        
+        /* Estilos para el botón de modo nocturno */
+        .night-mode .mode-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ccc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
+        }
+        
+        .night-mode h1 {
+			 border-bottom: 2px solid rgb(255, 255, 255); /* Línea inferior azul para el título */
+		}
+
     </style>
 </head>
 
 <body>
+    <button class="mode-button" onclick="toggleMode()">Modo Nocturno</button>
     <form action="LoginServlet" method="post">
         <h1>Mi Parking</h1>
 
@@ -70,7 +124,26 @@
         <input type="Password" id="Password" name="Password" required>
 
         <input type="submit" value="Login">
+
+        <!-- Mensaje de registro -->
+        <div class="register-message" onclick="location.href='registro.html'">No tienes una cuenta? Registrate aqui</div>
     </form>
+
+    <script>
+        function toggleMode() {
+            var body = document.body;
+            var modeButton = document.querySelector('.mode-button');
+
+            body.classList.toggle("night-mode");
+            if (body.classList.contains("night-mode")) {
+                body.style.backgroundColor = "#1a1a1a";
+                modeButton.textContent = "Modo Claro";
+            } else {
+                body.style.backgroundColor = "#edf2f7";
+                modeButton.textContent = "Modo Nocturno";
+            }
+        }
+    </script>
 </body>
 
 </html>

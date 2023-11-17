@@ -37,4 +37,14 @@
     <servlet-name>prueba1</servlet-name>
     <url-pattern>/prueba1</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>RegistroServlet</display-name>
+    <servlet-name>RegistroServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.RegistroServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>RegistroServlet</servlet-name>
+    <url-pattern>/RegistroServlet</url-pattern>
+  </servlet-mapping>
 </web-app>
