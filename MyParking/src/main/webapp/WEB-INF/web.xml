@@ -47,4 +47,12 @@
     <servlet-name>RegistroServlet</servlet-name>
     <url-pattern>/RegistroServlet</url-pattern>
   </servlet-mapping>
+   <servlet>
+    <servlet-name>CocheServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.CocheServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>CocheServlet</servlet-name>
+    <url-pattern>/CocheServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

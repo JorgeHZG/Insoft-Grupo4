@@ -9,7 +9,7 @@ import java.io.IOException;
 import es.unizar.si.g04.model.ClienteDAO;
 import es.unizar.si.g04.model.ClienteVO;
 
-//Servlet implementation class RegistroServlet
+/*@WebServlet("/RegistroServlet")*/
 public class RegistroServlet extends HttpServlet {
 	private static final long serialVersionUID = 1L;
 
@@ -34,9 +34,10 @@ public class RegistroServlet extends HttpServlet {
 			request.setAttribute("nombre", nombre);
 			request.setAttribute("apellido", apellido);
 			request.setAttribute("dni", dni);
-
-			request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
-
+			// Poner aqui un System.out
+			//request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
+			response.sendRedirect("loginCorrecto.jsp");
+			
 		} catch (Exception e) {
 			System.out.println("Fallo al anadir usuario");
 			e.printStackTrace();

@@ -6,17 +6,15 @@ import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import jakarta.servlet.http.Cookie;
 import es.unizar.si.g04.model.ClienteDAO;
 import es.unizar.si.g04.model.ClienteVO;
 
-
-/*@WebServlet("/LoginServlet")*/
-public class LoginServlet extends HttpServlet {
+/*@WebServlet("/MenuAcciones")*/
+public class MenuAcciones extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public LoginServlet() {
+    public MenuAcciones() {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -38,13 +36,6 @@ public class LoginServlet extends HttpServlet {
             // cliente.getApellido());
             if (cliente.getNombre() != clienteNULL.getNombre()) { // TODO
                 // Redirigir a la página de éxito
-            	
-            	
-            	Cookie cookieDNI = new Cookie("usuario", usuario);
-                cookieDNI.setMaxAge(30 * 60); // La cookie expirará en 30 minutos
-                response.addCookie(cookieDNI);
-                
-                
                 request.setAttribute("nombre", cliente.getNombre());
                 request.setAttribute("apellido", cliente.getApellido());
                 request.setAttribute("dni", cliente.getDni());
@@ -66,6 +57,3 @@ public class LoginServlet extends HttpServlet {
 
     }
 }
-
-
-
