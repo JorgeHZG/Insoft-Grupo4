@@ -55,4 +55,12 @@
     <servlet-name>CocheServlet</servlet-name>
     <url-pattern>/CocheServlet</url-pattern>
   </servlet-mapping>
+     <servlet>
+    <servlet-name>ReservaPlazaServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.ReservaPlazaServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ReservaPlazaServlet</servlet-name>
+    <url-pattern>/ReservaPlazaServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

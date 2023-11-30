@@ -91,6 +91,13 @@
             color: white;
         }
         
+                /* Estilos para el mensaje de error */
+        .errorMessage {
+            color: red; 
+            font-size: 16px;
+            margin-top: 10px;
+        }
+        
         .night-mode h1 {
             border-bottom: 2px solid rgb(255, 255, 255); /* Línea inferior blanca para el título */
         }
@@ -116,17 +123,23 @@
 
         <label for="tipoVehiculo">Tipo de Vehiculo:</label>
         <select id="tipoVehiculo" name="tipoVehiculo" required>
-            <option value="coches">Turismos</option>
-            <option value="motos">Motos</option>
-            <option value="electricos">Vehiculos electricos</option>
-            <option value="minusvalidos">Minusvalidos</option>
-            <option value="familiares">Familiares</option>
+            <option value="Turismo">Turismo</option>
+            <option value="Moto">Moto</option>
+            <option value="Vehiculo electrico">Vehiculo electrico</option>
+            <option value="Minusvalidos">Minusvalidos</option>
+            <option value="Familiar">Familiar</option>
         </select>
+
+		<c:if test="${not empty errorMessage}">
+            <div class="errorMessage">${errorMessage}</div>
+        </c:if>
 
         <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
 
 		<input type="submit" value="Continuar">
         <input type="button" value="Cancelar" onclick="window.history.back();">
+        
+    
     </form>
 
     <script>

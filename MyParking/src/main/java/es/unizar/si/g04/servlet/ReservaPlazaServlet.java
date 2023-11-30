@@ -26,14 +26,20 @@ public class ReservaPlazaServlet extends HttpServlet {
 		PlazaDAO plazaDAO = new PlazaDAO(); // Crear instancia DAO
 
 		try {
-			PlazaVO plaza = plazaDAO.consultarPlazaLibre(tipo);
+			PlazaVO plaza = plazaDAO.Reservar(tipo, request.getParameter("matricula"));
 
 			request.setAttribute("numero", plaza.getNumeroPlaza());
-			request.getRequestDispatcher("plazaDisponible.jsp").forward(request, response);
+
+			if (plaza.getNumeroPlaza() == -1) {
+				System.out.println("No hay plazas disponibles");
+				request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
+				request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
+			} else {
+				request.getRequestDispatcher("plazaDisponible.jsp").forward(request, response);
+			}
 
 		} catch (Exception e) {
-			System.out.println("No hay plazas disponibles");
-			request.getRequestDispatcher("plazaNODisponible.jsp").forward(request, response);
+
 			e.printStackTrace();
 		}
 	}
