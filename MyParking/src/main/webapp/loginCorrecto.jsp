@@ -125,7 +125,8 @@
 
         <div class="navigation">
             <div class="button-container">
-                <button class="mode-button" onclick="location.href='reservaPlaza.jsp'">RESERVAR PLAZA</button>
+                <button class="mode-button" onclick="location.href='ListarCoches'">RESERVAR PLAZA</button>
+                <button class="mode-button" onclick="location.href='AparcarCoche.jsp'">APARCAR COCHE</button>
                 <button class="mode-button" onclick="location.href='Estadisticas.jsp'">ESTADISTICAS</button>
                 <button class="mode-button" onclick="location.href='RegistroCoche.jsp'">ANADIR COCHE</button>
                 <button class="logout-button" onclick="location.href='login.html'">LOGOUT</button>

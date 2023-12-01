@@ -38,6 +38,9 @@
             margin-bottom: 10px;
         }
     </style>
+
+    <!-- Redirección después de 5 segundos -->
+    <meta http-equiv="refresh" content="5;url=loginCorrecto.jsp">
 </head>
 <body>
 

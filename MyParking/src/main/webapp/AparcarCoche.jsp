@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Plaza</title>
+    <title>Aparcar coche</title>
     <style>
         /* Estilos para centrar el formulario */
         body {
@@ -123,21 +123,15 @@
 
         <label for="tipoVehiculo">Tipo de Vehiculo:</label>
         	
-        	
-        	
         	<!-- ... Mostrar vehiculos ... -->
-		<h1>${vehiculo}</h1>
-		<h1>${vehiculo2}</h1>
+
 		<label for="vehiculo">Seleccione su vehiculo:</label>
 		<select id="vehiculo" name="vehiculo" required>
-		    <c:forEach var="i" begin="0" end="${Tamagno - 1}">
-		        <option value="1">
-		            <c:out value="1" />
-		        </option>
+		    <c:forEach var="vehiculo" items="${listaVehiculos}">
+		        <option value="${vehiculo}">${vehiculo}</option>
 		    </c:forEach>
 		</select>
 
-		
 
 		
         <select id="tipoVehiculo" name="tipoVehiculo" required>

@@ -32,8 +32,9 @@ public class ReservaPlazaServlet extends HttpServlet {
 
 			if (plaza.getNumeroPlaza() == -1) {
 				System.out.println("No hay plazas disponibles");
-				request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
-				request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
+				request.setAttribute("errorMessage",
+						"No se ha encontrado una plaza libre para el tipo de vehiculo seleccionado");
+				request.getRequestDispatcher("reservaPlaza.jsp").forward(request, response);
 			} else {
 				request.getRequestDispatcher("plazaDisponible.jsp").forward(request, response);
 			}

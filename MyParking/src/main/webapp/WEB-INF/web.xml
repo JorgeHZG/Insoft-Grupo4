@@ -47,7 +47,7 @@
     <servlet-name>RegistroServlet</servlet-name>
     <url-pattern>/RegistroServlet</url-pattern>
   </servlet-mapping>
-   <servlet>
+  <servlet>
     <servlet-name>CocheServlet</servlet-name>
     <servlet-class>es.unizar.si.g04.servlet.CocheServlet</servlet-class>
   </servlet>
@@ -55,12 +55,22 @@
     <servlet-name>CocheServlet</servlet-name>
     <url-pattern>/CocheServlet</url-pattern>
   </servlet-mapping>
-     <servlet>
+  <servlet>
     <servlet-name>ReservaPlazaServlet</servlet-name>
     <servlet-class>es.unizar.si.g04.servlet.ReservaPlazaServlet</servlet-class>
   </servlet>
   <servlet-mapping>
     <servlet-name>ReservaPlazaServlet</servlet-name>
     <url-pattern>/ReservaPlazaServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>ListarCoches</display-name>
+    <servlet-name>ListarCoches</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.ListarCoches</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarCoches</servlet-name>
+    <url-pattern>/ListarCoches</url-pattern>
   </servlet-mapping>
 </web-app>

@@ -4,6 +4,7 @@ import java.io.IOException;
 import java.sql.SQLException;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
+import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Cookie;
@@ -45,10 +46,16 @@ public class LoginServlet extends HttpServlet {
                 response.addCookie(cookieDNI);
                 
                 
-                request.setAttribute("nombre", cliente.getNombre());
-                request.setAttribute("apellido", cliente.getApellido());
-                request.setAttribute("dni", cliente.getDni());
-                request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
+                // Obtiene la sesión actual o crea una nueva
+                HttpSession session = request.getSession(true);
+                
+                // Almacena la información en la sesión
+                session.setAttribute("nombre", cliente.getNombre());
+                session.setAttribute("apellido", cliente.getApellido());
+                session.setAttribute("dni", cliente.getDni());
+
+             // Redirige a la página de éxito
+                response.sendRedirect("loginCorrecto.jsp");
             } else {
                 // Redirigir a la página de error
                 request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
