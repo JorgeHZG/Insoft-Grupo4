@@ -73,4 +73,24 @@
     <servlet-name>ListarCoches</servlet-name>
     <url-pattern>/ListarCoches</url-pattern>
   </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>AparcarServlet</display-name>
+    <servlet-name>AparcarServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.AparcarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>AparcarServlet</servlet-name>
+    <url-pattern>/AparcarServlet</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>DesaparcarServlet</display-name>
+    <servlet-name>DesaparcarServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.DesaparcarServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>DesaparcarServlet</servlet-name>
+    <url-pattern>/DesaparcarServlet</url-pattern>
+  </servlet-mapping>
 </web-app>

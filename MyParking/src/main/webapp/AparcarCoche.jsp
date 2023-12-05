@@ -115,24 +115,13 @@
 
     <button class="mode-button" onclick="toggleMode()">Modo Nocturno</button>
 
-    <form action="ReservaPlazaServlet" method="post">
+    <form action="AparcarServlet" method="post">
         <h1>Reserva de Plaza</h1>
 
         <label for="matricula">Matricula:</label>
         <input type="text" id="matricula" name="matricula" required>
 
         <label for="tipoVehiculo">Tipo de Vehiculo:</label>
-        	
-        	<!-- ... Mostrar vehiculos ... -->
-
-		<label for="vehiculo">Seleccione su vehiculo:</label>
-		<select id="vehiculo" name="vehiculo" required>
-		    <c:forEach var="vehiculo" items="${listaVehiculos}">
-		        <option value="${vehiculo}">${vehiculo}</option>
-		    </c:forEach>
-		</select>
-
-
 		
         <select id="tipoVehiculo" name="tipoVehiculo" required>
             <option value="Turismo">Turismo</option>

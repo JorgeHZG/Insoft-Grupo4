@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reserva de Plaza</title>
+    <title>Desaparcar coche</title>
     <style>
         /* Estilos para centrar el formulario */
         body {
@@ -115,65 +115,18 @@
 
     <button class="mode-button" onclick="toggleMode()">Modo Nocturno</button>
 
-    <form action="ReservaPlazaServlet" method="post">
-    
-    	<h1>Reserva de Plaza</h1>
+    <form action="DesaparcarServlet" method="post">
 
-        <label for="matricula">Matricula:</label>
+        <label for="matricula">Matricula del coche a desaparcar:</label>
         <input type="text" id="matricula" name="matricula" required>
 
-        <label for="tipoVehiculo">Tipo de Vehiculo:</label>
-		
-        <select id="tipoVehiculo" name="tipoVehiculo" required>
-            <option value="Turismo">Turismo</option>
-            <option value="Moto">Moto</option>
-            <option value="Vehiculo electrico">Vehiculo electrico</option>
-            <option value="Minusvalidos">Minusvalidos</option>
-            <option value="Familiar">Familiar</option>
-        </select>
-
 		<c:if test="${not empty errorMessage}">
             <div class="errorMessage">${errorMessage}</div>
         </c:if>
 
-        <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
-
 		<input type="submit" value="Continuar">
         <input type="button" value="Cancelar" onclick="window.history.back();">
-    	<!--
-        <h1>Reserva de Plaza</h1>
-		<h1>${tam}</h1>
-        <label for="vehiculo">Seleccione la matricula de su vehiculo:</label>
-        <select id="vehiculo" name="vehiculo" required>
-
-            <c:forEach var=i begin=0 end=${tam-1}>
-                <option value="${lista_vehiculos.get(i)}">
-                	${lista_vehiculos.get(i)}
-                </option>
-            </c:forEach>
-            
-        </select>
         
-        <label for="tipoVehiculo">Tipo de vehiculo:</label>
-		
-		
-        <select id="tipoVehiculo" name="tipoVehiculo" required>
-            <option value="Turismo">Turismo</option>
-            <option value="Moto">Moto</option>
-            <option value="Vehiculo electrico">Vehiculo electrico</option>
-            <option value="Minusvalidos">Minusvalidos</option>
-            <option value="Familiar">Familiar</option>
-        </select>
-        
-		<c:if test="${not empty errorMessage}">
-            <div class="errorMessage">${errorMessage}</div>
-        </c:if>
-		
-        <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
-
-		<input type="submit" value="Continuar">
-        <input type="button" value="Cancelar" onclick="window.history.back();">
-        -->
     
     </form>
 

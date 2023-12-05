@@ -25,7 +25,9 @@ public class PlazaDAO {
 	private static String registrarAparcar = "INSERT INTO myparking.\"Estancia\" (\"Fecha_Entrada\", \"Vehiculo\", \"Num_plaza\")"
 			+ " VALUES(?, ?, ?) ";
 
-	private static String consultarPlazaOcupada = "SELECT  myparking.\"Estancia\".\"Num_plaza\", "
+	private static String registrarSalida = "UPDATE myparking.\"Estancia\" SET \"Fecha_salida\" = ? WHERE \"Vehiculo\" = ? AND \"Num_plaza\" = ?";
+
+	private static String consultarPlazaOcupada = "SELECT  myparking.\"Estancia\".\"Num_plaza\" "
 			+ "FROM myparking.\"Estancia\" "
 			+ "WHERE myparking.\"Estancia\".\"Vehiculo\" = ?";
 
@@ -128,15 +130,11 @@ public class PlazaDAO {
 						escribeAparcar.setInt(3, num);
 
 						System.out.println(escribeAparcar.toString());
-						try (ResultSet rs2 = escribeAparcar.executeQuery()) {
-							System.out.println("El coche ha aparcado correctamente");
-							escribeAparcar.close();
-						} catch (SQLException se2) {
-							System.out.println("El coche NO ha aparcado correctamente");
-							se2.printStackTrace();
-						}
+						escribeAparcar.executeUpdate(); //
+						escribeAparcar.close();
+					}
 
-					} else {
+					else {
 						System.out.println("No se ha encontrado una plaza libre para el tipo de vehiculo seleccionado");
 						return plaza; // Si no ha habido exito, se devuelve una plaza con numero "-1"
 					}
@@ -179,6 +177,25 @@ public class PlazaDAO {
 						System.out.println(statement2.toString());
 						statement2.executeUpdate(); // Se ejecuta el update
 						statement2.close();
+
+						Date date = new Date(); // Obtener la fecha y hora actual
+						Timestamp horaSalida = new Timestamp(date.getTime()); // Crear un objeto Timestamp
+
+						PreparedStatement salida = conn.prepareStatement(registrarSalida);
+
+						salida.setTimestamp(1, horaSalida);
+						salida.setString(2, matricula);
+						salida.setInt(3, num);
+						System.out.println(salida.toString());
+
+						try (ResultSet rs2 = salida.executeQuery()) {
+							System.out.println("Salida registrada correctamente");
+							salida.close();
+						} catch (SQLException se2) {
+							System.out.println("Fallo anadir salida en la tabla estancia");
+							se2.printStackTrace();
+						}
+
 					} else {
 						System.out.println("El vehículo no está aparcado actualmente en el parking");
 						return false; // Si no ha habido exito, se devuelve una plaza con numero "-1"
