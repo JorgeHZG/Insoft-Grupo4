@@ -8,7 +8,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f8f9fa;
+            background-color: #ffe4b5;
             color: #333;
             display: flex;
             flex-direction: column;
@@ -19,7 +19,7 @@
         }
 
         .top-container {
-            background-color: #007BFF;
+            background-color: #994836;
             color: white;
             padding: 20px;
             text-align: center;
@@ -46,7 +46,7 @@
         }
 
         .info-container {
-            border: 2px solid #4285f4;
+            border: 2px solid #994836;
             border-radius: 10px;
             padding: 10px;
             margin-top: 10px;
@@ -74,22 +74,40 @@
         
 
         /* Estilos para el botón */
-        .mode-button,
-        .logout-button {
-            background-color: #007BFF;
-            color: white;
-            border: none;
-            border-radius: 30px;
-            padding: 20px;
-            margin-bottom: 15px; /* Separación entre botones */
-            margin-right: 20px;
-            cursor: pointer;
-            width: 250px;
-        }
-
-        .logout-button {
-            background-color: #FF0000;
-        }
+        .navigation {
+	        display: flex;
+	        flex-direction: column;
+	        align-items: center;
+	        margin-top: 20px; /* Bajada de la posición */
+		    }
+	
+	    .button-container {
+	        display: flex; /* Alinea los botones horizontalmente */
+	    }
+	
+	    .mode-button,
+	    .logout-button {
+	        border: none;
+	        border-radius: 30px;
+	        padding: 20px;
+	        margin-bottom: 15px; /* Separación entre botones */
+	        margin-right: 15px;
+	        cursor: pointer;
+	        width: 250px;
+	        font-weight: bold; /* Hacer el texto en negrita */
+	        box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+	    }
+	
+	    .logout-button {
+	        background-color: #994836; 
+	        color: white;
+	    }
+	
+	    .mode-button {
+	        background-color: #f5f5dc; 
+	        border: 1px solid #8B4513; 
+	        color: #333;
+	    }
     </style>
 </head>
 <body>
@@ -100,7 +118,7 @@
 
     <div class="container">
         <div class="user-info">
-            <h1 style="color: #4285f4;">¡Éxito en el Login!</h1>
+            <h1 style="color: #994836;">¡Éxito en el Login!</h1>
 
             <div class="info-container">
                 <span class="info-label">Nombre:</span>
@@ -128,7 +146,7 @@
                 <button class="mode-button" onclick="location.href='ListarCoches'">RESERVAR PLAZA</button>
                 <button class="mode-button" onclick="location.href='AparcarCoche.jsp'">APARCAR COCHE</button>
                 <button class="logout-button" onclick="location.href='DesaparcarCoche.jsp'">DESAPARCAR COCHE</button>
-                <button class="mode-button" onclick="location.href='Estadisticas.jsp'">ESTADISTICAS</button>
+                <button class="mode-button" onclick="location.href='OcupacionServlet'">ESTADISTICAS</button>
                 <button class="mode-button" onclick="location.href='RegistroCoche.jsp'">ANADIR COCHE</button>
                 <button class="logout-button" onclick="location.href='login.html'">LOGOUT</button>
             </div>

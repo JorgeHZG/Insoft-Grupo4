@@ -20,13 +20,13 @@ public class AparcarServlet extends HttpServlet {
 			throws ServletException, IOException {
 
 		// Parámetros del formulario
-		String tipo = request.getParameter("tipoVehiculo");
+		// String tipo = request.getParameter("tipoVehiculo");
 
 		// Lógica de base de datos
 		PlazaDAO plazaDAO = new PlazaDAO(); // Crear instancia DAO
 
 		try {
-			PlazaVO plaza = plazaDAO.Aparcar(tipo, request.getParameter("matricula"));
+			PlazaVO plaza = plazaDAO.Aparcar(request.getParameter("matricula"));
 
 			request.setAttribute("numero", plaza.getNumeroPlaza());
 

@@ -11,7 +11,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #edf2f7; /* Fondo azul claro */
+            background-color: moccasin; /* Fondo azul claro */
             transition: background-color 0.5s; /* Transición suave del color de fondo */
             color: #001f3f; /* Color de texto predeterminado */
         }
@@ -71,6 +71,15 @@
             cursor: pointer;
             text-decoration: underline;
         }
+        
+        /* Estilos para el mensaje de login admin */
+        .admin-message {
+            margin-top: 25px;
+            font-size: 16px;
+            color: darkolivegreen; 
+            cursor: pointer;
+            text-decoration: underline;
+        }
 
         /* Estilos para el botón de modo nocturno */
         .mode-button {
@@ -127,6 +136,8 @@
 
         <!-- Mensaje de registro -->
         <div class="register-message" onclick="location.href='registro.html'">No tienes una cuenta? Registrate aqui</div>
+        
+        <div class="admin-message" onclick="location.href='login_admin.html'">Eres un administrador? Inicia sesion aqui</div>
     </form>
 
     <script>
@@ -139,7 +150,7 @@
                 body.style.backgroundColor = "#1a1a1a";
                 modeButton.textContent = "Modo Claro";
             } else {
-                body.style.backgroundColor = "#edf2f7";
+                body.style.backgroundColor = "#ffe4b5";
                 modeButton.textContent = "Modo Nocturno";
             }
         }

@@ -1,9 +1,9 @@
-<%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
+<%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <!DOCTYPE html>
 <html>
 
 <head>
-    <title>Registrar Coche</title>
+    <title>Iniciar Sesión Admin</title>
     <style>
         /* Estilos para centrar el formulario */
         body {
@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffe4b5; 
+            background-color: #cadetblue; 
         }
 
         /* Estilos para el formulario */
@@ -36,7 +36,7 @@
         }
 
         input[type="text"],
-        select {
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
@@ -46,7 +46,7 @@
 
         /* Estilos para el botón */
         input[type="submit"] {
-            background-color: rgb(0, 128, 255); /* Verde bonito */
+            background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 20px;
@@ -55,28 +55,43 @@
         }
 
         input[type="submit"]:hover {
-            background-color: #218838; /* Verde más oscuro al pasar el ratón */
+            background-color: #0056b3;
+        }
+
+        /* Estilos para el mensaje de error */
+        .error-message {
+            color: #dc3545; /* Rojo oscuro */
+            font-size: 16px;
+            margin-top: 10px;
+        }
+
+        /* Estilos para el mensaje de registro */
+        .register-message {
+            margin-top: 20px;
+            font-size: 16px;
+            color: #007BFF; /* Azul del enlace */
+            cursor: pointer;
+            text-decoration: underline;
         }
     </style>
 </head>
 
 <body>
-    <form action="CocheServlet" method="post">
-        <h1>Registrar Coche</h1>
+    <form action="LoginServlet" method="post">
+        <h1>Mi Parking</h1>
 
-        <label for="Matricula">Matrícula:</label>
-        <input type="text" id="Matricula" name="Matricula" required>
+        <label for="DNI">DNI:</label>
+        <input type="text" id="DNI" name="DNI" required>
 
-        <label for="TipoVehiculo">Tipo de Vehículo:</label>
-        <select id="TipoVehiculo" name="TipoVehiculo" required>
-            <option value="Turismo">Turismo</option>
-            <option value="Moto">Moto</option>
-            <option value="Familiar">Familiar</option>
-            <option value="VehiculosElectricos">Vehículos Eléctricos</option>
-            <option value="Minusvalidos">Minusválidos</option>
-        </select>
+        <label for="Password">Password:</label>
+        <input type="Password" id="Password" name="Password" required>
 
-        <input type="submit" value="Registrar">
+        <input type="submit" value="Login">
+
+        <c:if test="${not empty errorMessage}">
+            <div class="error-message">${errorMessage}</div>
+        </c:if>
+
     </form>
 </body>
 

@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #edf2f7; /* Fondo azul claro */
+            background-color: #ffe4b5; /* Fondo azul claro */
             transition: background-color 0.5s; /* Transición suave del color de fondo */
             color: #001f3f; /* Color de texto predeterminado */
         }

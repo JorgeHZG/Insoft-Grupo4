@@ -8,15 +8,17 @@ import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Cookie;
+import es.unizar.si.g04.model.AdminDAO;
+import es.unizar.si.g04.model.AdministradorVO;
 import es.unizar.si.g04.model.ClienteDAO;
 import es.unizar.si.g04.model.ClienteVO;
 
 /*@WebServlet("/LoginServlet")*/
-public class LoginServlet extends HttpServlet {
+public class LoginServletAdmin extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
 
-    public LoginServlet() {
+    public LoginServletAdmin() {
     }
 
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
@@ -27,16 +29,13 @@ public class LoginServlet extends HttpServlet {
         String contrasena = request.getParameter("Password");
 
         // Lógica de base de datos
-        ClienteDAO clienteDAO = new ClienteDAO(); // Crear instancia DAO
-        ClienteVO cliente = new ClienteVO(null, null, null, null);
-        ClienteVO clienteNULL = new ClienteVO(null, null, null, null);
+        AdminDAO adminDAO = new AdminDAO(); // Crear instancia DAO
+        AdministradorVO admin = new AdministradorVO(null, null);
+        AdministradorVO adminNULL = new AdministradorVO(null, null);
 
         try {
-            cliente = (clienteDAO.verificarCredenciales(usuario, contrasena));
-            // System.out.println("Obtenido: " + cliente.getDni() + ", " +
-            // cliente.getPassword() + ", " + cliente.getNombre() + ", " +
-            // cliente.getApellido());
-            if (cliente.getDni() != clienteNULL.getDni()) { // TODO
+            admin = (adminDAO.verificarCredenciales(usuario, contrasena));
+            if (admin.getDni() != adminNULL.getDni()) { // TODO
                 // Redirigir a la página de éxito
 
                 Cookie cookieDNI = new Cookie("usuario", usuario);
@@ -47,16 +46,14 @@ public class LoginServlet extends HttpServlet {
                 HttpSession session = request.getSession(true);
 
                 // Almacena la información en la sesión
-                session.setAttribute("nombre", cliente.getNombre());
-                session.setAttribute("apellido", cliente.getApellido());
-                session.setAttribute("dni", cliente.getDni());
+                session.setAttribute("dni", admin.getDni());
 
                 // Redirige a la página de éxito
-                response.sendRedirect("loginCorrecto.jsp");
+                response.sendRedirect("loginCorrectoAdmin.jsp");
             } else {
                 // Redirigir a la página de error
                 request.setAttribute("errorMessage", "Error al realizar el login, campos invalidos");
-                request.getRequestDispatcher("loginNOcorrecto.jsp").forward(request, response);
+                request.getRequestDispatcher("loginNOcorrectoAdmin.jsp").forward(request, response);
             }
         } catch (SQLException e) {
             e.printStackTrace();

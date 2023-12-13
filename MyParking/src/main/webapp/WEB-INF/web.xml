@@ -83,7 +83,7 @@
     <servlet-name>AparcarServlet</servlet-name>
     <url-pattern>/AparcarServlet</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>DesaparcarServlet</display-name>
     <servlet-name>DesaparcarServlet</servlet-name>
@@ -92,5 +92,25 @@
   <servlet-mapping>
     <servlet-name>DesaparcarServlet</servlet-name>
     <url-pattern>/DesaparcarServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>LoginServletAdmin</display-name>
+    <servlet-name>LoginServletAdmin</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.LoginServletAdmin</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>LoginServletAdmin</servlet-name>
+    <url-pattern>/LoginServletAdmin</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>OcupacionServlet</display-name>
+    <servlet-name>OcupacionServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.OcupacionServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OcupacionServlet</servlet-name>
+    <url-pattern>/OcupacionServlet</url-pattern>
   </servlet-mapping>
 </web-app>

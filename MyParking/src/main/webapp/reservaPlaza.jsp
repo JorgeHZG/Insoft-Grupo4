@@ -12,7 +12,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #edf2f7; /* Fondo azul claro */
+            background-color: #ffe4b5; /* Fondo azul claro */
             transition: background-color 0.5s; /* Transición suave del color de fondo */
             color: #001f3f; /* Color de texto predeterminado */
         }
@@ -113,7 +113,6 @@
 </head>
 <body>
 
-    <button class="mode-button" onclick="toggleMode()">Modo Nocturno</button>
 
     <form action="ReservaPlazaServlet" method="post">
     
@@ -177,20 +176,5 @@
     
     </form>
 
-    <script>
-        function toggleMode() {
-            var body = document.body;
-            var modeButton = document.querySelector('.mode-button');
-
-            body.classList.toggle("night-mode");
-            if (body.classList.contains("night-mode")) {
-                body.style.backgroundColor = "#1a1a1a";
-                modeButton.textContent = "Modo Claro";
-            } else {
-                body.style.backgroundColor = "#edf2f7";
-                modeButton.textContent = "Modo Nocturno";
-            }
-        }
-    </script>
 </body>
 </html>

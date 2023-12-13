@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #f4f4f4;
+            background-color: #ffe4b5;
             margin: 0;
             padding: 0;
             display: flex;
@@ -69,40 +69,40 @@
 
         <div class="category" onclick="toggleDetails('turismos')">
             <h3>Turismos</h3>
-            <div id="turismosDetails" class="details">
-                <%-- Aquí puedes incluir el código para obtener y mostrar las estadísticas de turismos desde la base de datos --%>
+            <div id="turismos" class="details">
                 Estadísticas de turismos
+                <h4>Datos: %{lT}/%{tT}, Porcentaje: %{pT}%, Libres: %{oT} </h4> 
             </div>
         </div>
 
         <div class="category" onclick="toggleDetails('motos')">
             <h3>Motos</h3>
-            <div id="motosDetails" class="details">
-                <%-- Aquí puedes incluir el código para obtener y mostrar las estadísticas de motos desde la base de datos --%>
+            <div id="motos" class="details">
+                <%-- estadísticas de motos  --%>
                 Estadísticas de motos
             </div>
         </div>
 
         <div class="category" onclick="toggleDetails('electricos')">
             <h3>Vehículos Eléctricos</h3>
-            <div id="electricosDetails" class="details">
-                <%-- Aquí puedes incluir el código para obtener y mostrar las estadísticas de vehículos eléctricos desde la base de datos --%>
+            <div id="electricos" class="details">
+                <%-- estadísticas de vehículos eléctricos  --%>
                 Estadísticas de vehículos eléctricos
             </div>
         </div>
 
         <div class="category" onclick="toggleDetails('familiares')">
             <h3>Familiares</h3>
-            <div id="familiaresDetails" class="details">
-                <%-- Aquí puedes incluir el código para obtener y mostrar las estadísticas de vehículos familiares desde la base de datos --%>
+            <div id="familiares" class="details">
+                <%-- estadísticas de vehículos familiares --%>
                 Estadísticas de vehículos familiares
             </div>
         </div>
 
         <div class="category" onclick="toggleDetails('minusvalidos')">
             <h3>Minusválidos</h3>
-            <div id="minusvalidosDetails" class="details">
-                <%-- Aquí puedes incluir el código para obtener y mostrar las estadísticas de vehículos para personas con discapacidad desde la base de datos --%>
+            <div id="minusvalidos" class="details">
+                <%-- estadísticas de vehículos para personas con discapacidad --%>
                 Estadísticas de vehículos para personas con discapacidad
             </div>
         </div>

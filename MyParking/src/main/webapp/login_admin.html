@@ -1,9 +1,8 @@
 <!DOCTYPE html>
-<html lang="es">
+<html>
+
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Aparcar coche</title>
+    <title>Iniciar Sesión ADMINISTRADOR</title>
     <style>
         /* Estilos para centrar el formulario */
         body {
@@ -12,7 +11,7 @@
             align-items: center;
             height: 100vh;
             margin: 0;
-            background-color: #ffe4b5; 
+            background-color: cadetblue; /* Fondo azul claro */
             transition: background-color 0.5s; /* Transición suave del color de fondo */
             color: #001f3f; /* Color de texto predeterminado */
         }
@@ -41,7 +40,8 @@
             margin: 10px 0;
         }
 
-        select, input {
+        input[type="text"],
+        input[type="password"] {
             width: 100%;
             padding: 10px;
             margin: 5px 0;
@@ -50,26 +50,26 @@
         }
 
         /* Estilos para el botón */
-        input[type="submit"], input[type="button"] {
+        input[type="submit"] {
             background-color: #007BFF;
             color: white;
             border: none;
-            border-radius: 10px; /* Bordes redondeados */
-            padding: 8px 15px; /* Tamaño reducido */
+            border-radius: 20px;
+            padding: 10px 20px;
             cursor: pointer;
-            margin: 10px; /* Espaciado entre botones */
         }
 
-        input[type="submit"]:hover, input[type="button"]:hover {
+        input[type="submit"]:hover {
             background-color: #0056b3;
         }
 
-        /* Estilos para el mensaje de reserva */
-        .reservation-message {
+        /* Estilos para el mensaje de registro */
+        .register-message {
             margin-top: 20px;
             font-size: 16px;
             color: #007BFF; /* Azul del enlace */
-            text-align: center;
+            cursor: pointer;
+            text-decoration: underline;
         }
 
         /* Estilos para el botón de modo nocturno */
@@ -86,51 +86,45 @@
         }
 
         /* Estilos para el modo nocturno */
+
         .night-mode form {
             background-color: #001f3f;
             color: white;
         }
         
-                /* Estilos para el mensaje de error */
-        .errorMessage {
-            color: red; 
-            font-size: 16px;
-            margin-top: 10px;
+        /* Estilos para el botón de modo nocturno */
+        .night-mode .mode-button {
+            position: absolute;
+            top: 10px;
+            right: 10px;
+            background-color: #ccc;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            padding: 5px 10px;
+            cursor: pointer;
         }
         
         .night-mode h1 {
-            border-bottom: 2px solid rgb(255, 255, 255); /* Línea inferior blanca para el título */
-        }
+			 border-bottom: 2px solid rgb(255, 255, 255); /* Línea inferior azul para el título */
+		}
 
-        .night-mode input, .night-mode select {
-            border: 1px solid #fff;
-        }
-
-        .night-mode .mode-button {
-            background-color: #ccc;
-        }
     </style>
 </head>
+
 <body>
-
     <button class="mode-button" onclick="toggleMode()">Modo Nocturno</button>
+    <form action="LoginServletAdmin" method="post">
+        <h1>Mi Parking</h1>
 
-    <form action="AparcarServlet" method="post">
-        <h1>Reserva de Plaza</h1>
+        <label for="DNI">DNI:</label>
+        <input type="text" id="DNI" name="DNI" required>
 
-        <label for="matricula">Matricula:</label>
-        <input type="text" id="matricula" name="matricula" required>
+        <label for="Password">Password:</label>
+        <input type="Password" id="Password" name="Password" required>
 
-		<c:if test="${not empty errorMessage}">
-            <div class="errorMessage">${errorMessage}</div>
-        </c:if>
+        <input type="submit" value="Login">
 
-        <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
-
-		<input type="submit" value="Continuar">
-        <input type="button" value="Cancelar" onclick="window.history.back();">
-        
-    
     </form>
 
     <script>
@@ -143,10 +137,11 @@
                 body.style.backgroundColor = "#1a1a1a";
                 modeButton.textContent = "Modo Claro";
             } else {
-                body.style.backgroundColor = "#ffe4b5";
+                body.style.backgroundColor = "#5f9ea0";
                 modeButton.textContent = "Modo Nocturno";
             }
         }
     </script>
 </body>
+
 </html>
