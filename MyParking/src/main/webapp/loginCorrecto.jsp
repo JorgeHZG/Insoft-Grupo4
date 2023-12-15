@@ -1,4 +1,4 @@
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -62,7 +62,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 20px; /* Bajada de la posici贸n */
+            margin-top: 20px; /* Bajada de la posici髇 */
         }
         
         /* Estilos para el mensaje de error */
@@ -73,12 +73,12 @@
         }
         
 
-        /* Estilos para el bot贸n */
+        /* Estilos para el bot髇 */
         .navigation {
 	        display: flex;
 	        flex-direction: column;
 	        align-items: center;
-	        margin-top: 20px; /* Bajada de la posici贸n */
+	        margin-top: 20px; /* Bajada de la posici髇 */
 		    }
 	
 	    .button-container {
@@ -90,7 +90,7 @@
 	        border: none;
 	        border-radius: 30px;
 	        padding: 20px;
-	        margin-bottom: 15px; /* Separaci贸n entre botones */
+	        margin-bottom: 15px; /* Separaci髇 entre botones */
 	        margin-right: 15px;
 	        cursor: pointer;
 	        width: 250px;
@@ -118,7 +118,7 @@
 
     <div class="container">
         <div class="user-info">
-            <h1 style="color: #994836;">隆脡xito en el Login!</h1>
+            <h1 style="color: #994836;">∩xito en el Login!</h1>
 
             <div class="info-container">
                 <span class="info-label">Nombre:</span>
@@ -143,8 +143,8 @@
 
         <div class="navigation">
             <div class="button-container">
-                <button class="mode-button" onclick="location.href='ListarCoches'">RESERVAR PLAZA</button>
-                <button class="mode-button" onclick="location.href='AparcarCoche.jsp'">APARCAR COCHE</button>
+                <button class="mode-button" onclick="location.href='ListarCochesReserva'">RESERVAR PLAZA</button>
+                <button class="mode-button" onclick="location.href='ListarCochesAparcar'">APARCAR COCHE</button>
                 <button class="logout-button" onclick="location.href='DesaparcarCoche.jsp'">DESAPARCAR COCHE</button>
                 <button class="mode-button" onclick="location.href='OcupacionServlet'">ESTADISTICAS</button>
                 <button class="mode-button" onclick="location.href='RegistroCoche.jsp'">ANADIR COCHE</button>

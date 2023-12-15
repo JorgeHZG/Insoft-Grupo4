@@ -6,6 +6,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Vector;
 
 import es.unizar.si.g04.db.ConnectionManager;
 
@@ -37,8 +38,8 @@ public class VehiculoDAO {
         return true;
     }
 
-    public List<String> obtenerVehiculosUsuario(String usuario) {
-        List<String> vehiculos = new ArrayList<>();
+    public Vector<String> obtenerVehiculosUsuario(String usuario) {
+        Vector<String> vehiculos = new Vector<>();  // Cambia a Vector
 
         try (Connection conn = ConnectionManager.getConnection()) {
             // Abrimos conexion

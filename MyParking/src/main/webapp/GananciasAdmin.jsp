@@ -7,7 +7,7 @@
     <style>
         body {
             font-family: Arial, sans-serif;
-            background-color: #ffe4b5;
+            background-color: #5f9ea0;
             margin: 0;
             padding: 0;
             display: flex;
@@ -64,47 +64,11 @@
 </head>
 <body>
     <div class="container">
-        <h2>Estadísticas de Vehículos</h2>
+        <h2>Ganancias obtenidas:</h2>
 
-        <div class="category">
-            <h3>Turismos</h3>
+        <div class="category">${ganancias} €</div>
 
-               <p>Datos: ${lT}/${tT}, Porcentaje: ${pT}%, Libres: ${oT} </p>
-
-        </div>
-
-        <div class="category">
-            <h3>Motos</h3>
-                <p>Datos: ${lM}/${tM}, Porcentaje: ${pM}%, Libres: ${oM}</p>             
-        </div>
-
-        <div class="category" onmouseover="toggleDetails('electricos')">
-            <h3>Vehículos Eléctricos</h3>
-                <p>Datos: ${lE}/${tE}, Porcentaje: ${pE}%, Libres: ${oE}</p>
-        </div>
-
-        <div class="category">
-            <h3>Minusválidos</h3>
-                <p>Datos: ${lMin}/${tMin}, Porcentaje: ${pMin}%, Libres: ${oMin}
-        </div>
-
-        <div class="category">
-            <h3>Familiares </h3>
-            <p>Datos: ${lF}/${tF}, Porcentaje: ${pF}%, Libres: ${oF}</p>
-
-        </div>
     </div>
-
-    <script>
-        function toggleDetails(category) {
-            var detailsElement = document.getElementById(category);
-            var allDetails = document.querySelectorAll('.details');
-            for (var i = 0; i < allDetails.length; i++) {
-                allDetails[i].style.display = 'none';
-            }
-            detailsElement.style.display = 'block';
-        }
-    </script>
 
 </body>
 </html>

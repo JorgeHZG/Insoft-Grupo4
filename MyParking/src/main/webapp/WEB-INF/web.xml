@@ -65,13 +65,23 @@
   </servlet-mapping>
   <servlet>
     <description></description>
-    <display-name>ListarCoches</display-name>
-    <servlet-name>ListarCoches</servlet-name>
-    <servlet-class>es.unizar.si.g04.servlet.ListarCoches</servlet-class>
+    <display-name>ListarCochesAparcar</display-name>
+    <servlet-name>ListarCochesAparcar</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.ListarCochesAparcar</servlet-class>
   </servlet>
   <servlet-mapping>
-    <servlet-name>ListarCoches</servlet-name>
-    <url-pattern>/ListarCoches</url-pattern>
+    <servlet-name>ListarCochesAparcar</servlet-name>
+    <url-pattern>/ListarCochesAparcar</url-pattern>
+  </servlet-mapping>
+    <servlet>
+    <description></description>
+    <display-name>ListarCochesReserva</display-name>
+    <servlet-name>ListarCochesReserva</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.ListarCochesReserva</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>ListarCochesReserva</servlet-name>
+    <url-pattern>/ListarCochesReserva</url-pattern>
   </servlet-mapping>
   <servlet>
     <description></description>
@@ -112,5 +122,25 @@
   <servlet-mapping>
     <servlet-name>OcupacionServlet</servlet-name>
     <url-pattern>/OcupacionServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>GananciasAdminServlet</display-name>
+    <servlet-name>GananciasAdminServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.GananciasAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>GananciasAdminServlet</servlet-name>
+    <url-pattern>/GananciasAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>EstadisticasTemporalesServlet</display-name>
+    <servlet-name>EstadisticasTemporalesServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.EstadisticasTemporalesServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>EstadisticasTemporalesServlet</servlet-name>
+    <url-pattern>/EstadisticasTemporalesServlet</url-pattern>
   </servlet-mapping>
 </web-app>

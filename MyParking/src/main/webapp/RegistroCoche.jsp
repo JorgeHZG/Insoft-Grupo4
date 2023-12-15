@@ -72,7 +72,7 @@
             <option value="Turismo">Turismo</option>
             <option value="Moto">Moto</option>
             <option value="Familiar">Familiar</option>
-            <option value="VehiculosElectricos">Vehículos Eléctricos</option>
+            <option value="Vehiculo electrico">Vehículos Eléctricos</option>
             <option value="Minusvalidos">Minusválidos</option>
         </select>
 

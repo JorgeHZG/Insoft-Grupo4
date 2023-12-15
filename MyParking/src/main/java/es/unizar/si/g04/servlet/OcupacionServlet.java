@@ -32,7 +32,7 @@ public class OcupacionServlet extends HttpServlet {
 			plaza = plazaDAO[0].ObtenerOcupacion("Turismo");
 			tT = plaza[0];
 			lT = plaza[1];
-			percent[0] = (lT / tT) * 100;
+			percent[0] = ( (float) lT / (float) tT) * 100;
 			free[0] = tT - lT;
 			request.setAttribute("tT", tT);
 			request.setAttribute("lT", lT);
@@ -42,7 +42,7 @@ public class OcupacionServlet extends HttpServlet {
 			plaza = plazaDAO[1].ObtenerOcupacion("Moto");
 			tM = plaza[0];
 			lM = plaza[1];
-			percent[1] = (lM / tM) * 100;
+			percent[1] = ((float) lM / (float) tM) * 100;
 			free[1] = tM - lM;
 
 			request.setAttribute("tM", tM);
@@ -53,7 +53,7 @@ public class OcupacionServlet extends HttpServlet {
 			plaza = plazaDAO[2].ObtenerOcupacion("Vehiculo electrico");
 			tE = plaza[0];
 			lE = plaza[1];
-			percent[2] = (lE / tE) * 100;
+			percent[2] = ((float) lE / (float) tE) * 100;
 			free[2] = tE - lE;
 
 			request.setAttribute("tE", tE);
@@ -64,7 +64,7 @@ public class OcupacionServlet extends HttpServlet {
 			plaza = plazaDAO[3].ObtenerOcupacion("Minusvalidos");
 			tMin = plaza[0];
 			lMin = plaza[1];
-			percent[3] = (lMin / tMin) * 100;
+			percent[3] = ((float) lMin / (float) tMin) * 100;
 			free[3] = tMin - lMin;
 
 			request.setAttribute("tMin", tMin);
@@ -75,14 +75,14 @@ public class OcupacionServlet extends HttpServlet {
 			plaza = plazaDAO[4].ObtenerOcupacion("Familiar");
 			tF = plaza[0];
 			lF = plaza[1];
-			percent[4] = (lF / tF) * 100;
+			percent[4] = ( (float) lF / (float) tF) * 100;
 			free[4] = tF - lF;
 
 			request.setAttribute("tF", tF);
 			request.setAttribute("lF", lF);
 			request.setAttribute("pF", percent[4]);
 			request.setAttribute("oF", free[4]);
-
+			
 			request.getRequestDispatcher("Estadisticas.jsp").forward(request, response);
 
 		} catch (Exception e) {

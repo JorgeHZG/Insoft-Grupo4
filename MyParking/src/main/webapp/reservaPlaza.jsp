@@ -13,7 +13,7 @@
             height: 100vh;
             margin: 0;
             background-color: #ffe4b5; /* Fondo azul claro */
-            transition: background-color 0.5s; /* TransiciÃ³n suave del color de fondo */
+            transition: background-color 0.5s; /* Transición suave del color de fondo */
             color: #001f3f; /* Color de texto predeterminado */
         }
 
@@ -24,15 +24,15 @@
             border-radius: 25px;
             padding: 50px;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
-            transition: background-color 0.5s; /* TransiciÃ³n suave del color de fondo */
+            transition: background-color 0.5s; /* Transición suave del color de fondo */
         }
 
-        /* Estilos para el tÃ­tulo */
+        /* Estilos para el título */
         h1 {
             color: inherit; /* Hereda el color de texto del elemento padre (body) */
-            border-bottom: 2px solid #001f3f; /* LÃ­nea inferior azul para el tÃ­tulo */
-            padding-bottom: 10px; /* Espaciado inferior para el tÃ­tulo */
-            margin-bottom: 20px; /* Margen inferior para el tÃ­tulo */
+            border-bottom: 2px solid #001f3f; /* Línea inferior azul para el título */
+            padding-bottom: 10px; /* Espaciado inferior para el título */
+            margin-bottom: 20px; /* Margen inferior para el título */
         }
 
         /* Estilos para las etiquetas y campos de entrada */
@@ -49,13 +49,13 @@
             border-radius: 5px;
         }
 
-        /* Estilos para el botÃ³n */
+        /* Estilos para el botón */
         input[type="submit"], input[type="button"] {
             background-color: #007BFF;
             color: white;
             border: none;
             border-radius: 10px; /* Bordes redondeados */
-            padding: 8px 15px; /* TamaÃ±o reducido */
+            padding: 8px 15px; /* Tamaño reducido */
             cursor: pointer;
             margin: 10px; /* Espaciado entre botones */
         }
@@ -72,7 +72,7 @@
             text-align: center;
         }
 
-        /* Estilos para el botÃ³n de modo nocturno */
+        /* Estilos para el botón de modo nocturno */
         .mode-button {
             position: absolute;
             top: 10px;
@@ -99,7 +99,7 @@
         }
         
         .night-mode h1 {
-            border-bottom: 2px solid rgb(255, 255, 255); /* LÃ­nea inferior blanca para el tÃ­tulo */
+            border-bottom: 2px solid rgb(255, 255, 255); /* Línea inferior blanca para el título */
         }
 
         .night-mode input, .night-mode select {
@@ -112,69 +112,34 @@
     </style>
 </head>
 <body>
-
-
+	
     <form action="ReservaPlazaServlet" method="post">
-    
-    	<h1>Reserva de Plaza</h1>
+    	<h1>Reservar plaza</h1>
+	    <label for="matricula">Matricula:</label>
+	    <select name="matricula" id="matricula">
+	        <%
+	            String[] vector_vehiculos = (String[]) request.getAttribute("vector_vehiculos");
+	            if (vector_vehiculos != null) {
+	                for (int i = 0; i < vector_vehiculos.length; i++) {
+	        %>
+	                    <option value="<%= vector_vehiculos[i] %>"><%= vector_vehiculos[i] %></option>
+	        <%
+	                }
+	            }
+	        %>
+	    </select>
+	    <br>
+	
+	    <c:if test="${not empty errorMessage}">
+	        <div class="errorMessage">${errorMessage}</div>
+	    </c:if>
+	
+	    <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
+	
+	    <input type="submit" value="Continuar">
+	    <input type="button" value="Cancelar" onclick="window.history.back();">
+	</form>
 
-        <label for="matricula">Matricula:</label>
-        <input type="text" id="matricula" name="matricula" required>
-
-        <label for="tipoVehiculo">Tipo de Vehiculo:</label>
-		
-        <select id="tipoVehiculo" name="tipoVehiculo" required>
-            <option value="Turismo">Turismo</option>
-            <option value="Moto">Moto</option>
-            <option value="Vehiculo electrico">Vehiculo electrico</option>
-            <option value="Minusvalidos">Minusvalidos</option>
-            <option value="Familiar">Familiar</option>
-        </select>
-
-		<c:if test="${not empty errorMessage}">
-            <div class="errorMessage">${errorMessage}</div>
-        </c:if>
-
-        <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
-
-		<input type="submit" value="Continuar">
-        <input type="button" value="Cancelar" onclick="window.history.back();">
-    	<!--
-        <h1>Reserva de Plaza</h1>
-		<h1>${tam}</h1>
-        <label for="vehiculo">Seleccione la matricula de su vehiculo:</label>
-        <select id="vehiculo" name="vehiculo" required>
-
-            <c:forEach var=i begin=0 end=${tam-1}>
-                <option value="${lista_vehiculos.get(i)}">
-                	${lista_vehiculos.get(i)}
-                </option>
-            </c:forEach>
-            
-        </select>
-        
-        <label for="tipoVehiculo">Tipo de vehiculo:</label>
-		
-		
-        <select id="tipoVehiculo" name="tipoVehiculo" required>
-            <option value="Turismo">Turismo</option>
-            <option value="Moto">Moto</option>
-            <option value="Vehiculo electrico">Vehiculo electrico</option>
-            <option value="Minusvalidos">Minusvalidos</option>
-            <option value="Familiar">Familiar</option>
-        </select>
-        
-		<c:if test="${not empty errorMessage}">
-            <div class="errorMessage">${errorMessage}</div>
-        </c:if>
-		
-        <p class="reservation-message">Dispone de una hora de reserva desde el momento que pulse aceptar.</p>
-
-		<input type="submit" value="Continuar">
-        <input type="button" value="Cancelar" onclick="window.history.back();">
-        -->
-    
-    </form>
 
 </body>
 </html>

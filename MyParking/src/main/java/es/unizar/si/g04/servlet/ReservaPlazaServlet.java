@@ -26,7 +26,7 @@ public class ReservaPlazaServlet extends HttpServlet {
 		PlazaDAO plazaDAO = new PlazaDAO(); // Crear instancia DAO
 
 		try {
-			PlazaVO plaza = plazaDAO.Reservar(tipo, request.getParameter("matricula"));
+			PlazaVO plaza = plazaDAO.Reservar(request.getParameter("matricula"));
 
 			request.setAttribute("numero", plaza.getNumeroPlaza());
 
