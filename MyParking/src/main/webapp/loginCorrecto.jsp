@@ -147,6 +147,7 @@
                 <button class="mode-button" onclick="location.href='ListarCochesAparcar'">APARCAR COCHE</button>
                 <button class="logout-button" onclick="location.href='DesaparcarCoche.jsp'">DESAPARCAR COCHE</button>
                 <button class="mode-button" onclick="location.href='OcupacionServlet'">ESTADISTICAS</button>
+                <button class="mode-button" onclick="location.href='HistoricoEstadisticasClienteServlet'">CONSULTAR GASTO</button>
                 <button class="mode-button" onclick="location.href='RegistroCoche.jsp'">ANADIR COCHE</button>
                 <button class="logout-button" onclick="location.href='login.html'">LOGOUT</button>
             </div>

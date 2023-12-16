@@ -12,7 +12,6 @@ import jakarta.servlet.http.Cookie;
 import es.unizar.si.g04.model.VehiculoDAO;
 import es.unizar.si.g04.model.VehiculoVO;
 
-
 public class CocheServlet extends HttpServlet {
 
     private static final long serialVersionUID = 1L;
@@ -23,38 +22,37 @@ public class CocheServlet extends HttpServlet {
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
 
-        // Parámetros del formulario
+        // Obtener matricula y tipo de vehiculo
         String matricula = request.getParameter("Matricula");
         String tipo_vehiculo = request.getParameter("TipoVehiculo");
         String usuario = "";
         Cookie[] cookies = request.getCookies();
-        
+
         if (cookies != null) {
             for (Cookie cookie : cookies) {
                 if (cookie.getName().equals("usuario")) {
                     usuario = cookie.getValue();
                     break;
                 }
-            }   
+            }
         }
         System.out.println(usuario);
 
-        // Lógica de base de datos
+        // Instancia DAO para ejecutar el metodo
         VehiculoDAO vehiculo = new VehiculoDAO();
-    
-        if (vehiculo.addVehicle(matricula, usuario, tipo_vehiculo)) {
-			 request.setAttribute("confirmMessage", "Vehiculo anadido correctamente");
-		     request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
-		}
-		else {
-			String mensajeError = "Hubo un error al anadir el coche.";
 
-		    // Construye el script de JavaScript para mostrar el mensaje de error en una ventana emergente
-		    String script = "<script type='text/javascript'>"
-		                    + "alert('" + mensajeError + "');"
-		                    + "window.location.href='paginaAnterior.jsp';"  // Redirige a la página anterior
-		                    + "</script>";
-		}
+        if (vehiculo.addVehicle(matricula, usuario, tipo_vehiculo)) {
+            request.setAttribute("confirmMessage", "Vehiculo anadido correctamente");
+            request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
+        } else {
+            String mensajeError = "Hubo un error al anadir el coche.";
+
+            // Mostrar el mensaje de error en una ventana emergente
+            String script = "<script type='text/javascript'>"
+                    + "alert('" + mensajeError + "');"
+                    + "window.location.href='paginaAnterior.jsp';" // Redirigimos a la página anterior
+                    + "</script>";
+        }
     }
 
     protected void doGet(HttpServletRequest request, HttpServletResponse response)
@@ -64,6 +62,3 @@ public class CocheServlet extends HttpServlet {
 
     }
 }
-
-
-

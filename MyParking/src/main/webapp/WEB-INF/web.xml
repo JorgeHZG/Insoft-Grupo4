@@ -73,7 +73,7 @@
     <servlet-name>ListarCochesAparcar</servlet-name>
     <url-pattern>/ListarCochesAparcar</url-pattern>
   </servlet-mapping>
-    <servlet>
+  <servlet>
     <description></description>
     <display-name>ListarCochesReserva</display-name>
     <servlet-name>ListarCochesReserva</servlet-name>
@@ -125,6 +125,16 @@
   </servlet-mapping>
   <servlet>
     <description></description>
+    <display-name>OcupacionAdminServlet</display-name>
+    <servlet-name>OcupacionAdminServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.OcupacionAdminServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>OcupacionAdminServlet</servlet-name>
+    <url-pattern>/OcupacionAdminServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
     <display-name>GananciasAdminServlet</display-name>
     <servlet-name>GananciasAdminServlet</servlet-name>
     <servlet-class>es.unizar.si.g04.servlet.GananciasAdminServlet</servlet-class>
@@ -142,5 +152,15 @@
   <servlet-mapping>
     <servlet-name>EstadisticasTemporalesServlet</servlet-name>
     <url-pattern>/EstadisticasTemporalesServlet</url-pattern>
+  </servlet-mapping>
+  <servlet>
+    <description></description>
+    <display-name>HistoricoEstadisticasClienteServlet</display-name>
+    <servlet-name>HistoricoEstadisticasClienteServlet</servlet-name>
+    <servlet-class>es.unizar.si.g04.servlet.HistoricoEstadisticasClienteServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>HistoricoEstadisticasClienteServlet</servlet-name>
+    <url-pattern>/HistoricoEstadisticasClienteServlet</url-pattern>
   </servlet-mapping>
 </web-app>

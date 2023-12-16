@@ -15,8 +15,6 @@ public class VehiculoDAO {
     private static String registrarVehiculo = "INSERT INTO  myparking.\"Vehiculo\" VALUES (?, ?, ?)";
     private static String vehiculosCliente = "SELECT  myparking.\"Vehiculo\".\"Matricula\" FROM myparking.\"Vehiculo\" WHERE myparking.\"Vehiculo\".\"Cliente\" = ?";
 
-    // ("insert into users set username = ?, password = ? ");
-
     public boolean addVehicle(String mat, String user, String tipo) {
         try (Connection conn = ConnectionManager.getConnection()) {
             PreparedStatement statement = conn.prepareStatement(registrarVehiculo);
@@ -39,7 +37,7 @@ public class VehiculoDAO {
     }
 
     public Vector<String> obtenerVehiculosUsuario(String usuario) {
-        Vector<String> vehiculos = new Vector<>();  // Cambia a Vector
+        Vector<String> vehiculos = new Vector<>();
 
         try (Connection conn = ConnectionManager.getConnection()) {
             // Abrimos conexion

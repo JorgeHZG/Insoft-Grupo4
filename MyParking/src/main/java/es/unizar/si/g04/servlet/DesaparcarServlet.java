@@ -19,7 +19,6 @@ public class DesaparcarServlet extends HttpServlet {
 	protected void doPost(HttpServletRequest request, HttpServletResponse response)
 			throws ServletException, IOException {
 
-		// Lógica de base de datos
 		PlazaDAO plazaDAO = new PlazaDAO(); // Crear instancia DAO
 
 		try {

@@ -91,8 +91,6 @@
         <c:if test="${not empty errorMessage}">
             <div class="error-message">${errorMessage}</div>
         </c:if>
-
-        <!-- Mensaje de registro -->
         <div class="register-message" onclick="location.href='registro.html'">No tienes una cuenta? Registrate aqui</div>
     </form>
 </body>

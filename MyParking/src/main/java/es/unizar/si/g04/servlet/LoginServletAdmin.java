@@ -2,12 +2,14 @@ package es.unizar.si.g04.servlet;
 
 import java.io.IOException;
 import java.sql.SQLException;
+
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpSession;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.servlet.http.Cookie;
+
 import es.unizar.si.g04.model.AdminDAO;
 import es.unizar.si.g04.model.AdministradorVO;
 import es.unizar.si.g04.model.ClienteDAO;
@@ -28,7 +30,6 @@ public class LoginServletAdmin extends HttpServlet {
         String usuario = request.getParameter("DNI");
         String contrasena = request.getParameter("Password");
 
-        // Lógica de base de datos
         AdminDAO adminDAO = new AdminDAO(); // Crear instancia DAO
         AdministradorVO admin = new AdministradorVO(null, null);
         AdministradorVO adminNULL = new AdministradorVO(null, null);

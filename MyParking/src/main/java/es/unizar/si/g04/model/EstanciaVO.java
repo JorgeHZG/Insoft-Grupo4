@@ -3,8 +3,6 @@ package es.unizar.si.g04.model;
 import java.sql.Timestamp;
 
 public class EstanciaVO {
-    // Hace falta poner el tipo de dato timestamp without timezone?
-    // Y el tipo de dato character varying?
     private Timestamp fecha;
     private Timestamp hora_salida;
     private Timestamp hora_entrada;

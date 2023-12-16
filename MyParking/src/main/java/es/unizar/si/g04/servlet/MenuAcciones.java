@@ -34,7 +34,7 @@ public class MenuAcciones extends HttpServlet {
             // System.out.println("Obtenido: " + cliente.getDni() + ", " +
             // cliente.getPassword() + ", " + cliente.getNombre() + ", " +
             // cliente.getApellido());
-            if (cliente.getNombre() != clienteNULL.getNombre()) { // TODO
+            if (cliente.getNombre() != clienteNULL.getNombre()) {
                 // Redirigir a la página de éxito
                 request.setAttribute("nombre", cliente.getNombre());
                 request.setAttribute("apellido", cliente.getApellido());

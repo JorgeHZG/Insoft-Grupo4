@@ -36,7 +36,7 @@ public class LoginServlet extends HttpServlet {
             // System.out.println("Obtenido: " + cliente.getDni() + ", " +
             // cliente.getPassword() + ", " + cliente.getNombre() + ", " +
             // cliente.getApellido());
-            if (cliente.getDni() != clienteNULL.getDni()) { // TODO
+            if (cliente.getDni() != clienteNULL.getDni()) {
                 // Redirigir a la página de éxito
 
                 Cookie cookieDNI = new Cookie("usuario", usuario);

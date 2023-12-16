@@ -52,7 +52,7 @@ public class AdminDAO {
 					se.printStackTrace();
 
 				}
-				statement.close(); // Preguntar
+				statement.close();
 			} catch (Exception e) {
 				e.printStackTrace(System.err);
 			}
@@ -128,7 +128,7 @@ public class AdminDAO {
 					// Incrementamos en el vector de recuento de entradas según la hora
 					ocupacionPorHoras[horaComoEntero]++;
 				}
-				// Mayo
+				// Mayor numero representable: (2^32) - 1
 				int min = 2147483647;
 
 				for (int i = 0; i < 24; i++) {

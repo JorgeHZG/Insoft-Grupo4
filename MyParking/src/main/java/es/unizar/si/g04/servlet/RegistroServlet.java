@@ -1,13 +1,12 @@
 package es.unizar.si.g04.servlet;
 
+import java.io.IOException;
+
+import es.unizar.si.g04.model.ClienteDAO;
 import jakarta.servlet.ServletException;
-import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
-import java.io.IOException;
-import es.unizar.si.g04.model.ClienteDAO;
-import es.unizar.si.g04.model.ClienteVO;
 
 /*@WebServlet("/RegistroServlet")*/
 public class RegistroServlet extends HttpServlet {
@@ -34,10 +33,8 @@ public class RegistroServlet extends HttpServlet {
 			request.setAttribute("nombre", nombre);
 			request.setAttribute("apellido", apellido);
 			request.setAttribute("dni", dni);
-			// Poner aqui un System.out
-			//request.getRequestDispatcher("loginCorrecto.jsp").forward(request, response);
 			response.sendRedirect("loginCorrecto.jsp");
-			
+
 		} catch (Exception e) {
 			System.out.println("Fallo al anadir usuario");
 			e.printStackTrace();

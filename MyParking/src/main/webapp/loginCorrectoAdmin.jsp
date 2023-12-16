@@ -133,7 +133,7 @@
 
         <div class="navigation">
             <div class="button-container">
-                <button class="mode-button" onclick="location.href='OcupacionServlet'">ESTADISTICAS OCUPACION</button>
+                <button class="mode-button" onclick="location.href='OcupacionAdminServlet'">ESTADISTICAS OCUPACION</button>
                 <button class="mode-button" onclick="location.href='EstadisticasTemporalesServlet'">ESTADISTICAS TEMPORALES</button>
                 <button class="mode-button" onclick="location.href='GananciasAdminServlet'">GANANCIAS</button>
                 <button class="logout-button" onclick="location.href='login.html'">LOGOUT</button>

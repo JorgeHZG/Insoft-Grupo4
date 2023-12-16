@@ -43,9 +43,6 @@ public class PlazaDAO {
 
 	private static String consultarSalidaCoche = "SELECT myparking.\"Estancia\".\"Fecha_salida\" FROM myparking.\"Estancia\" WHERE myparking.\"Estancia\".\"Vehiculo\"  = ? ORDER BY myparking.\"Estancia\".\"Fecha_Entrada\" DESC LIMIT 1;";
 
-	// private static String anadirPlaza = "INSERT INTO myparking.\"Plaza\" VALUES
-	// (?, ?, ?)";
-
 	public PlazaVO Reservar(String matricula) throws SQLException {
 		try (Connection conn = ConnectionManager.getConnection()) {
 			// Abrimos conexión
@@ -158,8 +155,7 @@ public class PlazaDAO {
 									return plaza;
 								} else { // El vehículo aún está en el parking
 									System.out.println("El vehículo aun está en el parking");
-									plaza.setNumeroPlaza(-2); // TODO: Revisar el codigo de error y cambiarlo en el
-																// servlet
+									plaza.setNumeroPlaza(-2);
 									return plaza;
 								}
 
@@ -356,11 +352,10 @@ public class PlazaDAO {
 									statementTipoDeCoche.close();
 									System.out.println("-->" + String.valueOf(plaza.getNumeroPlaza()));
 									return plaza;
-									
+
 								} else { // El vehículo aún está en el parking
 									System.out.println("El vehículo aun está en el parking");
-									plaza.setNumeroPlaza(-2); // TODO: Revisar el codigo de error y cambiarlo en el
-																// servlet
+									plaza.setNumeroPlaza(-2);
 									return plaza;
 								}
 
@@ -395,7 +390,8 @@ public class PlazaDAO {
 								// tipo
 								try (ResultSet rs2 = statementNumPlaza.executeQuery()) {
 									if (rs2.next()) {
-										System.out.println("Plaza libre encontrada: " + String.valueOf(rs2.getInt("Numero")));
+										System.out.println(
+												"Plaza libre encontrada: " + String.valueOf(rs2.getInt("Numero")));
 
 										// "num" es el numero de plaza libre encontrada
 										int num = rs2.getInt("Numero");

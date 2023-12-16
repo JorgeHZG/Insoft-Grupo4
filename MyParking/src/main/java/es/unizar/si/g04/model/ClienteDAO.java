@@ -5,6 +5,11 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+import java.io.IOException;
+import java.sql.Timestamp;
+import java.util.Date;
+import jakarta.servlet.http.HttpSession;
+
 import es.unizar.si.g04.db.ConnectionManager;
 import es.unizar.si.g04.db.PoolConnectionManager;
 
@@ -17,6 +22,12 @@ public class ClienteDAO {
 			+ "WHERE myparking.\"Cliente\".\"DNI\" = ? AND myparking.\"Cliente\".\"Contrasegna\" = ?";
 
 	private static String registrarUsuario = "INSERT INTO  myparking.\"Cliente\" VALUES (?, ?, ?, ?)";
+
+	private static String tiempoReservaActual = "SELECT myparking.\"Estancia\".\"Fecha_Entrada\", myparking.\"Estancia\".\"Fecha_salida\" "
+			+ "FROM myparking.\"Estancia\" "
+			+ "INNER JOIN myparking.\"Vehiculo\" ON myparking.\"Estancia\".\"Vehiculo\" = myparking.\"Vehiculo\".\"Matricula\" "
+			+ "INNER JOIN myparking.\"Cliente\" ON myparking.\"Vehiculo\".\"Cliente\" = myparking.\"Cliente\".\"DNI\" "
+			+ "WHERE myparking.\"Cliente\".\"DNI\" = ? AND myparking.\"Estancia\".\"Fecha_salida\" IS NOT NULL;";
 
 	// ("insert into users set username = ?, password = ? ");
 
@@ -75,7 +86,7 @@ public class ClienteDAO {
 					se.printStackTrace();
 
 				}
-				statement.close(); // Preguntar
+				statement.close();
 			} catch (Exception e) {
 				e.printStackTrace(System.err);
 			}
@@ -89,4 +100,58 @@ public class ClienteDAO {
 		return null;
 	}
 
+	public int obtenerHistoricoEstancias(String DNI) throws SQLException {
+
+		// Verifica si la sesión existe y contiene el atributo "dni"
+		if (DNI != null) {
+			// Obtiene el DNI del usuario actual
+
+			try (Connection conn = ConnectionManager.getConnection()) {
+				// Abrimos conexión
+				PreparedStatement statement = conn.prepareStatement(tiempoReservaActual);
+				statement.setString(1, DNI);
+
+				float totalMinutosAparcados = 0;
+				// Ejecutamos la consulta
+				System.out.println(statement);
+				try (ResultSet rs = statement.executeQuery()) {
+					while (rs.next()) {
+						Timestamp fechaEntrada = rs.getTimestamp("Fecha_entrada");
+						Timestamp fechaSalida = rs.getTimestamp("Fecha_salida");
+						System.out.println("fecha entrada: " + String.valueOf(fechaEntrada));
+						System.out.println("fecha salida: " + String.valueOf(fechaSalida));
+
+						// Diferencia de tiempo entre la salida y la entrada
+						long diferenciaEnMillis = fechaSalida.getTime() - fechaEntrada.getTime();
+						System.out.println(String.valueOf(diferenciaEnMillis));
+
+						// Convertir la diferencia de milisegundos a minutos
+						float diferenciaEnMinutos = (float) diferenciaEnMillis / (60 * 1000);
+						System.out.println(String.valueOf(diferenciaEnMinutos));
+
+						// Añadir valor a la variable resultado
+						totalMinutosAparcados += diferenciaEnMinutos;
+						System.out.println(String.valueOf(totalMinutosAparcados));
+					}
+					System.out.format("total minutos aparcados: " + String.valueOf(totalMinutosAparcados));
+				} catch (SQLException se) {
+					se.printStackTrace();
+				}
+				statement.close();
+				// Cerramos conexion y devolvemos el dato
+				ConnectionManager.releaseConnection(conn);
+				System.out.println("Conexión cerrada, query tiempoReservaActual realizada");
+				return (int) totalMinutosAparcados;
+			} catch (Error e) {
+				System.out.println("Error en la conexión");
+				return -1;
+			}
+
+		} else {
+			// La sesión no existe o no contiene el atributo "dni"
+			System.out.println("No se ha encontrado información de DNI en la sesión.");
+			return -1;
+		}
+
+	}
 }

@@ -1,9 +1,5 @@
 package es.unizar.si.g04.model;
 
-/*
-    Tabla vehículo
-*/
-
 public class VehiculoVO {
     private String matricula;
     private String cliente;
